@@ -13,8 +13,7 @@ const setup = (initialState = {}) => {
 describe("render", () => {
   let wrapper;
   beforeEach(() => {
-    const initialState = { success: false };
-    wrapper = setup(initialState);
+    wrapper = setup();
   });
   it("renders without error", () => {
     const component = findByTestAttr(wrapper, "component-card");

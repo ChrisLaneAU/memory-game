@@ -1,1 +1,1 @@
-export const SHOW_LOADING = "SHOW_LOADING;";
+export const LOADING_VISIBLE = "LOADING_VISIBLE;";

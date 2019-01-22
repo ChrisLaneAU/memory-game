@@ -1,0 +1,67 @@
+.game-select {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 15em) 1fr;
+  grid-gap: 3em;
+
+  &__link {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    align-self: center;
+    height: 20em;
+  }
+
+  &__card {
+    align-self: center;
+
+    &--0 {
+      grid-column: 2;
+    }
+    &--1 {
+      grid-column: 3;
+    }
+    &--2 {
+      grid-column: 4;
+    }
+  }
+
+  &__icon,
+  &__title,
+  &__description {
+    justify-self: center;
+  }
+
+  &__icon {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    font-size: 4em;
+    color: lighten(#1ba1e2, 10%);
+    margin-bottom: -0.3em;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-self: end;
+    font-weight: normal;
+    color: #545454;
+    text-decoration: none;
+  }
+
+  &__description {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: center;
+    color: #444;
+    text-decoration: none;
+
+    &--0,
+    &--1 {
+      grid-column: 1 / -1;
+      margin-left: 3em;
+      margin-right: 3em;
+    }
+  }
+}

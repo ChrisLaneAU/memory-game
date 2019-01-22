@@ -6,7 +6,7 @@ import { findByTestAttr } from "./test/testUtils";
 import App, { UnconnectedApp } from "./App";
 
 const setup = (initialState = {}) => {
-  const wrapper = mount(<App {...initialState} />);
+  const wrapper = shallow(<UnconnectedApp {...initialState} />);
   //console.log(wrapper.debug());
   return wrapper;
 };
@@ -14,7 +14,7 @@ const setup = (initialState = {}) => {
 describe("render", () => {
   let wrapper;
   beforeEach(() => {
-    const initialState = { success: false };
+    const initialState = { loadingVisible: false };
     wrapper = setup(initialState);
   });
   it("renders without error", () => {

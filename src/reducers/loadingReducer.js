@@ -1,8 +1,8 @@
-import { SHOW_LOADING } from "../actions/types";
+import { LOADING_VISIBLE } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case SHOW_LOADING:
+    case LOADING_VISIBLE:
       return action.payload;
     default:
       return state;

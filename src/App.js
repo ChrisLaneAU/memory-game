@@ -1,27 +1,47 @@
 import "./App.scss";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "./actions";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBrain } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBrain,
+  faTools,
+  faTh,
+  faForward
+} from "@fortawesome/free-solid-svg-icons";
 
 import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
-import Card from "./components/Card/Card";
+import Header from "./components/Header/Header";
+import GameSelect from "./components/GameSelect/GameSelect";
 
-library.add(faBrain);
+library.add(faBrain, faTools, faTh, faForward);
 
-export class App extends Component {
+export class UnconnectedApp extends Component {
+  componentDidMount() {
+    this.props.loadingVisible(false);
+  }
+
   render() {
     return (
-      <div data-test="component-app" className="container">
-        <LoadingOverlay />
+      <div data-test="component-app" className="app-container">
+        {this.props.loadingVisible ? (
+          <div className="game-container">
+            <Header />
+            <GameSelect />
+          </div>
+        ) : (
+          <LoadingOverlay />
+        )}
       </div>
     );
   }
 }
 
-/*const mapStateToProps = state => {
-  return;
+const mapStateToProps = ({ loadingVisible }) => {
+  return { loadingVisible };
 };
 
-export default connect(mapStateToProps)(UnconnectedApp);*/
-export default App;
+export default connect(
+  mapStateToProps,
+  actions
+)(UnconnectedApp);

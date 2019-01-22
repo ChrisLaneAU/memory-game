@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import loading from "./loadingReducer";
+import loadingVisible from "./loadingReducer";
 
 export default combineReducers({
-  loading
+  loadingVisible
 });

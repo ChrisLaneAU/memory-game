@@ -8,7 +8,7 @@
   perspective: 150em;
   position: relative;
   width: 90%;
-  max-width: 10em;
+  //max-width: 10em;
   justify-self: center;
 
   display: grid;
@@ -31,10 +31,9 @@
     border-radius: 3px;
     overflow: hidden;
     box-shadow: 0 1.5em 4em rgba(#000, 0.15);
+    background-color: #fff;
 
     &--front {
-      background-color: #fff;
-
       &--rotated {
         transform: rotateY(-180deg);
       }
@@ -55,11 +54,6 @@
         text-align: center;
         height: 100%;
         width: 100%;
-        background-color: #fff;
-
-        &--white {
-          height: 100%;
-        }
       }
 
       &--rotated {

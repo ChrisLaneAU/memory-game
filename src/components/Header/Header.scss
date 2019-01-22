@@ -1,8 +1,17 @@
 .header {
+  grid-column: 1 / -1;
+  grid-row: 1;
   display: flex;
+  align-items: center;
 
   &__icon {
+    margin: 0.4em;
+    margin-left: 1em;
+    font-size: 1.5em;
+    color: #545454;
   }
   &__text {
+    margin-left: 0.5em;
+    font-weight: 500;
   }
 }

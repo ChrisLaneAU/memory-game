@@ -26,7 +26,8 @@ const Card = props => {
       data-test="component-card"
       className={`card ${props.className}`}
       onClick={() => {
-        if (props.rotate === "onClick") handleCardclick();
+        if (!props.rotate) return;
+        if (props.rotate !== "infinitely") handleCardclick();
       }}
     >
       <div
@@ -40,6 +41,7 @@ const Card = props => {
         <div className="card__container">
           {props.frontImg}
           {props.frontText}
+          {props.children}
           <div className="card__details" />
         </div>
       </div>

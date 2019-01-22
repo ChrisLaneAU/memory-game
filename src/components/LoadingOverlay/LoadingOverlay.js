@@ -1,5 +1,5 @@
-import React from "react";
 import "./LoadingOverlay.scss";
+import React from "react";
 import Card from "../Card/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
