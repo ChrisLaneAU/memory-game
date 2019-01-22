@@ -1,0 +1,32 @@
+.loading {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: grid;
+
+  &__card {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    align-self: end;
+    height: 15em;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+  }
+
+  &__icon {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 3.3em;
+    color: #333;
+  }
+
+  &__name {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    margin-top: -0.3em;
+  }
+}

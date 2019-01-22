@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faBrain } from "@fortawesome/free-solid-svg-icons";
 
-class App extends Component {
+import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
+import Card from "./components/Card/Card";
+
+library.add(faBrain);
+
+export class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div data-test="component-app" className="container">
+        <LoadingOverlay />
       </div>
     );
   }
 }
 
+/*const mapStateToProps = state => {
+  return;
+};
+
+export default connect(mapStateToProps)(UnconnectedApp);*/
 export default App;
