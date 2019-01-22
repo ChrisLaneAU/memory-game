@@ -19,13 +19,13 @@ export class GameSelect extends Component {
         icon: "th",
         title: "Try example",
         description: "Preppo: Learn prepositional phrases",
-        linkTo: "build-a-game"
+        linkTo: "game-setup"
       },
       {
         icon: "forward",
         title: "Quick start",
         description: "Basic memory game",
-        linkTo: "build-a-game"
+        linkTo: "game-play"
       }
     ];
 
@@ -33,19 +33,29 @@ export class GameSelect extends Component {
       const { icon, title, description, linkTo } = card;
       return (
         <div key={icon} className="game-select">
-          <Card className={`game-select__card game-select__card--${index}`}>
+          <Card
+            data-test="component-card"
+            className={`game-select__card game-select__card--${index}`}
+          >
             <Link to={`/${linkTo}`} className="game-select__link" />
             <Link to={`/${linkTo}`} className="game-select__icon">
-              <FontAwesomeIcon key={index} icon={icon} />
+              <FontAwesomeIcon
+                data-test="component-icon"
+                key={index}
+                icon={icon}
+              />
             </Link>
             <Link to={`/${linkTo}`} className="game-select__title">
-              <h2 className="game-select__title">{title}</h2>
+              <h2 data-test="title" className="game-select__title">
+                {title}
+              </h2>
             </Link>
             <Link
+              data-test={`link-to-${linkTo}`}
               to={`/${linkTo}`}
               className={`game-select__description game-select__description--${index}`}
             >
-              <p>{description}</p>
+              <p data-test="description">{description}</p>
             </Link>
           </Card>
         </div>

@@ -6,6 +6,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import BuildAGame from "./components/pages/BuildAGame/BuildAGame";
+import GameSetup from "./components/pages/GameSetup/GameSetup";
+import GamePlay from "./components/pages/GamePlay/GamePlay";
+import GameFinish from "./components/pages/GameFinish/GameFinish";
 import * as serviceWorker from "./serviceWorker";
 import store from "./configureStore";
 
@@ -14,6 +17,9 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
+          <Route path="/game-finish" component={GameFinish} />
+          <Route path="/game-play" component={GamePlay} />
+          <Route path="/game-setup" component={GameSetup} />
           <Route path="/build-a-game" component={BuildAGame} />
           <Route path="/" component={App} />
         </Switch>

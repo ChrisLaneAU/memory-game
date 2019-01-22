@@ -2,10 +2,10 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { findByTestAttr } from "../../../test/testUtils";
-import { BuildAGame } from "./BuildAGame";
+import { GameFinish } from "./GameFinish";
 
 const setup = (initialState = {}) => {
-  const wrapper = shallow(<BuildAGame {...initialState} />);
+  const wrapper = shallow(<GameFinish {...initialState} />);
   return wrapper;
 };
 
@@ -15,7 +15,7 @@ describe("render", () => {
     wrapper = setup();
   });
   it("renders without error", () => {
-    const component = findByTestAttr(wrapper, "component-build-a-game");
+    const component = findByTestAttr(wrapper, "component-game-finish");
     expect(component.length).toBe(1);
   });
 });

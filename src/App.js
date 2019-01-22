@@ -16,7 +16,7 @@ import GameSelect from "./components/GameSelect/GameSelect";
 
 library.add(faBrain, faTools, faTh, faForward);
 
-export class UnconnectedApp extends Component {
+export class App extends Component {
   componentDidMount() {
     this.props.loadingVisible(false);
   }
@@ -44,4 +44,4 @@ const mapStateToProps = ({ loadingVisible }) => {
 export default connect(
   mapStateToProps,
   actions
-)(UnconnectedApp);
+)(App);

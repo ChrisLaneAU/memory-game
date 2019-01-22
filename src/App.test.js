@@ -3,10 +3,10 @@ import { Provider } from "react-redux";
 import { shallow, mount } from "enzyme";
 
 import { findByTestAttr } from "./test/testUtils";
-import App, { UnconnectedApp } from "./App";
+import { App } from "./App";
 
 const setup = (initialState = {}) => {
-  const wrapper = shallow(<UnconnectedApp {...initialState} />);
+  const wrapper = shallow(<App {...initialState} />);
   //console.log(wrapper.debug());
   return wrapper;
 };
