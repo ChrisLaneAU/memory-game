@@ -1,1 +1,3 @@
 export const LOADING_VISIBLE = "LOADING_VISIBLE;";
+export const SAVE_BUILD = "SAVE_BUILD";
+export const ACTIVE_BUILD_TAB = "ACTIVE_BUILD_TAB";
