@@ -1,0 +1,58 @@
+.button-tabs {
+  width: 100%;
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
+
+  &__btn {
+    &,
+    &:link,
+    &:visited {
+      font-size: 1em;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 0.7em 1.4em;
+      display: inline-block;
+      transition: all 0.3s;
+      position: relative;
+      border: 1px solid #aaa;
+      cursor: pointer;
+      transform: translateZ(0);
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 0.3em 0.6em rgba(#000, 0.2);
+    }
+
+    &--white {
+      background-color: #fff;
+      color: #777;
+    }
+
+    &--blue {
+      background-color: #1ba1e2;
+      color: #fff;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 7em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.4s;
+    }
+
+    &--active {
+      background-color: #1ba1e2;
+      color: #fff;
+    }
+  }
+}

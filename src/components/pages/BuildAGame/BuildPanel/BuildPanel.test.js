@@ -12,7 +12,8 @@ const setup = (initialState = {}) => {
 describe("render", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = setup();
+    const initialState = { gameBuilder: { activeTab: "General" } };
+    wrapper = setup(initialState);
   });
   it("renders without error", () => {
     const component = findByTestAttr(wrapper, "component-build-panel");

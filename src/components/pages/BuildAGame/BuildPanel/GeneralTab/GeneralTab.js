@@ -2,7 +2,11 @@ import "./GeneralTab.scss";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { saveBuild } from "../../../../../actions";
+import {
+  saveBuild,
+  setCurrentBuild,
+  setActiveBuildTab
+} from "../../../../../actions";
 
 export class GeneralTab extends Component {
   renderField(field) {
@@ -26,6 +30,8 @@ export class GeneralTab extends Component {
 
   onSubmit(values) {
     this.props.saveBuild(values);
+    this.props.setCurrentBuild(values);
+    this.props.setActiveBuildTab("Rules");
   }
 
   render() {
@@ -95,6 +101,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuild }
+    { saveBuild, setCurrentBuild, setActiveBuildTab }
   )(GeneralTab)
 );

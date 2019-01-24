@@ -1,0 +1,20 @@
+.sample-tab {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 5em 1fr 1fr;
+
+  &__rotate-btns {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  &__save-btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: end;
+    padding-bottom: 3em;
+  }
+}

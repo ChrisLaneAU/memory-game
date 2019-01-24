@@ -2,7 +2,7 @@ import "./RulesTab.scss";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { saveBuild } from "../../../../../actions";
+import { saveBuild, setActiveBuildTab } from "../../../../../actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export class RulesTab extends Component {
@@ -25,6 +25,7 @@ export class RulesTab extends Component {
 
   onSubmit(values) {
     this.props.saveBuild(values);
+    this.props.setActiveBuildTab("Content");
   }
 
   render() {
@@ -72,6 +73,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuild }
+    { saveBuild, setActiveBuildTab }
   )(RulesTab)
 );

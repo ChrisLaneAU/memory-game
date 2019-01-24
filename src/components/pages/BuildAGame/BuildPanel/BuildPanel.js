@@ -27,21 +27,24 @@ export class BuildPanel extends Component {
       Sample: <SampleTab />
     };
 
-    return tabs[this.props.activeBuildTab];
+    return tabs[this.props.gameBuilder.activeTab];
   }
 
   render() {
     return (
       <div data-test="component-build-panel" className="build-panel">
-        <ButtonTabs onClick={event => this.handleButtonTabsClick(event)} />
-        {this.renderActiveTab()}
+        <ButtonTabs
+          activeTab={this.props.gameBuilder.activeTab}
+          onClick={event => this.handleButtonTabsClick(event)}
+        />
+        <div className="build-panel__tab">{this.renderActiveTab()}</div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ activeBuildTab }) => {
-  return { activeBuildTab };
+const mapStateToProps = ({ gameBuilder }) => {
+  return { gameBuilder };
 };
 
 export default connect(

@@ -2,7 +2,7 @@ import "./ContentTab.scss";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { saveBuild } from "../../../../../actions";
+import { saveBuild, setActiveBuildTab } from "../../../../../actions";
 
 export class ContentTab extends Component {
   renderField(field) {
@@ -21,6 +21,7 @@ export class ContentTab extends Component {
 
   onSubmit(values) {
     this.props.saveBuild(values);
+    this.props.setActiveBuildTab("Sample");
   }
 
   render() {
@@ -84,6 +85,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuild }
+    { saveBuild, setActiveBuildTab }
   )(ContentTab)
 );

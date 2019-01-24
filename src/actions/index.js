@@ -1,22 +1,36 @@
-import { LOADING_VISIBLE, SAVE_BUILD, ACTIVE_BUILD_TAB } from "./types";
+import * as actionTypes from "./types";
 
 export const loadingVisible = visible => dispatch => {
   dispatch({
-    type: LOADING_VISIBLE,
+    type: actionTypes.LOADING_VISIBLE,
     payload: visible
   });
 };
 
 export const saveBuild = buildData => dispatch => {
   dispatch({
-    type: SAVE_BUILD,
+    type: actionTypes.SAVE_BUILD,
     payload: buildData
   });
 };
 
 export const setActiveBuildTab = activeBuildTab => dispatch => {
   dispatch({
-    type: ACTIVE_BUILD_TAB,
+    type: actionTypes.ACTIVE_BUILD_TAB,
     payload: activeBuildTab
+  });
+};
+
+export const setCardsToFront = cards => dispatch => {
+  dispatch({
+    type: actionTypes.VIEWER_CARDS_TO_FRONT,
+    payload: cards
+  });
+};
+
+export const setCurrentBuild = buildData => dispatch => {
+  dispatch({
+    type: actionTypes.SET_CURRENT_BUILD,
+    payload: buildData
   });
 };
