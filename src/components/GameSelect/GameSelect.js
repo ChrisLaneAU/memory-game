@@ -4,9 +4,28 @@ import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
+import { saveBuild, setCurrentBuild } from "../../actions";
 import Card from "../Card/Card";
 
 export class GameSelect extends Component {
+  componentDidMount() {
+    const rules = {
+      rule1: "Tap a card to turn it over",
+      rule2: "Tap a second card",
+      rule3: "If they match you get a point and another turn",
+      rule4:
+        "If they don't match, both cards are turned back over and it's the next player's turn"
+    };
+    const preppo = {
+      gameName: "Preppo",
+      gameDescription: "Learn prepositional phrases",
+      numOfPairs: 6
+    };
+
+    this.props.saveBuild(preppo);
+    this.props.setCurrentBuild(preppo);
+  }
+
   renderCards() {
     const cardsData = [
       {
@@ -74,4 +93,11 @@ export class GameSelect extends Component {
   }
 }
 
-export default GameSelect;
+const mapStateToProps = ({ builtGames }) => {
+  return { builtGames };
+};
+
+export default connect(
+  null,
+  { saveBuild, setCurrentBuild }
+)(GameSelect);

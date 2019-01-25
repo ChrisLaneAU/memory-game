@@ -8,14 +8,15 @@ import {
   faTools,
   faTh,
   faForward,
-  faPlus
+  faPlus,
+  faMinus
 } from "@fortawesome/free-solid-svg-icons";
 
 import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 import Header from "./components/Header/Header";
 import GameSelect from "./components/GameSelect/GameSelect";
 
-library.add(faBrain, faTools, faTh, faForward, faPlus);
+library.add(faBrain, faTools, faTh, faForward, faPlus, faMinus);
 
 export class App extends Component {
   componentDidMount() {

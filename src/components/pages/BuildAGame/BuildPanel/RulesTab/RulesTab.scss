@@ -1,0 +1,61 @@
+.rules-tab-form {
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content repeat(3, 1fr);
+  grid-template-columns: 1fr;
+
+  &__field {
+    margin: 1.5em 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__input,
+  &__label {
+    color: #333;
+  }
+
+  &__input {
+    height: 2.2em;
+    font-size: 1em;
+    padding: 0.3em;
+    width: 100%;
+  }
+
+  &__label {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0.8em;
+  }
+
+  &__icon {
+    pointer-events: none;
+  }
+
+  &__round-btn {
+    border-radius: 50%;
+    height: 2em;
+    min-width: 2em;
+    padding: 0.3em;
+    margin-left: 1em;
+  }
+
+  &__minus-btn {
+  }
+
+  &__plus-btn {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: end;
+    align-self: start;
+  }
+
+  &__submit-btn {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    align-self: end;
+    justify-self: center;
+    margin-bottom: 3em;
+  }
+}

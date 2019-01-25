@@ -37,6 +37,11 @@
     color: #fff;
   }
 
+  &--red {
+    background-color: #ff6f6f;
+    color: #fff;
+  }
+
   &::after {
     content: "";
     display: inline-block;

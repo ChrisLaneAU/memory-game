@@ -7,10 +7,10 @@ export const loadingVisible = visible => dispatch => {
   });
 };
 
-export const saveBuild = buildData => dispatch => {
+export const saveBuild = builtGames => dispatch => {
   dispatch({
     type: actionTypes.SAVE_BUILD,
-    payload: buildData
+    payload: builtGames
   });
 };
 

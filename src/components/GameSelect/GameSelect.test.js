@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { findByTestAttr } from "../../test/testUtils";
-import GameSelect from "./GameSelect";
+import { GameSelect } from "./GameSelect";
 
 const setup = (initialState = {}) => {
   const wrapper = shallow(<GameSelect {...initialState} />);
@@ -12,7 +12,11 @@ const setup = (initialState = {}) => {
 describe("render", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = setup();
+    const initialState = {
+      saveBuild: function() {},
+      setCurrentBuild: function() {}
+    };
+    wrapper = setup(initialState);
   });
   it("renders component without error", () => {
     const component = findByTestAttr(wrapper, "component-game-select");

@@ -1,6 +1,57 @@
-.form {
+@import "../../../../../sass/slider.scss";
+
+.general-tab-form {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr;
+
+  &__input,
+  &__label {
+    display: block;
+    padding-bottom: 0.6em;
+    color: #333;
+  }
+
+  &__input {
+    height: 2.2em;
+    font-size: 1em;
+    padding: 0.3em;
+
+    &--text {
+      width: 80%;
+    }
+
+    &--number {
+      width: 4em;
+    }
+
+    &--range {
+      width: 20% !important;
+      max-width: 14em !important;
+      position: absolute;
+      transform: translateX(6em) translateY(-8.3em);
+    }
+  }
+
+  &__label {
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 0.4em;
+    margin-top: 1em;
+  }
+
   &__error {
-    height: 3em;
+    height: 2em;
     color: #ff0000;
+    padding: 0.3em;
+  }
+
+  &__submit-btn {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    align-self: end;
+    justify-self: center;
+    margin-bottom: 3em;
   }
 }

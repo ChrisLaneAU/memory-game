@@ -2,6 +2,8 @@ import "./ContentTab.scss";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
+
+import Btn from "../../../../Btn/Btn";
 import { saveBuild, setActiveBuildTab } from "../../../../../actions";
 
 export class ContentTab extends Component {
@@ -32,7 +34,6 @@ export class ContentTab extends Component {
         data-test="component-content-tab"
         onSubmit={handleSubmit(this.onSubmit.bind(this))}
       >
-        <h4>Rules (how to play)</h4>
         <Field
           label="Upload image"
           name="uploadImage"
@@ -53,7 +54,12 @@ export class ContentTab extends Component {
         />
         <h4>Images (drag and drop onto card)</h4>
         <div className="imagesList">List of images</div>
-        <button type="submit">Continue</button>
+        <Btn
+          type="submit"
+          text="Continue"
+          color="green"
+          className="form__submit-btn"
+        />
       </form>
     );
   }

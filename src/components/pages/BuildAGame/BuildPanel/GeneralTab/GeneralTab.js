@@ -2,6 +2,8 @@ import "./GeneralTab.scss";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
+
+import Btn from "../../../../Btn/Btn";
 import {
   saveBuild,
   setCurrentBuild,
@@ -9,18 +11,28 @@ import {
 } from "../../../../../actions";
 
 export class GeneralTab extends Component {
+  componentDidMount() {
+    const gameName = this.props.gameBuilder.currentBuild;
+    this.props.initialize(gameName);
+  }
+
   renderField(field) {
     const {
       meta: { touched, error }
     } = field;
-    const className = `form-group ${touched && error ? "has-danger" : ""}`;
 
     return (
-      <div className={className}>
-        <label>{field.label}</label>
-        <input className="form__input" type={field.type} {...field.input} />
-        {field.noError !== "true" ? (
-          <div className="form__error">{touched ? error : ""}</div>
+      <div>
+        <label className="general-tab-form__label">{field.label}</label>
+        <input
+          className={`general-tab-form__input general-tab-form__input--${
+            field.type
+          }`}
+          type={field.type}
+          {...field.input}
+        />
+        {field.hideError !== "true" ? (
+          <div className="general-tab-form__error">{touched ? error : ""}</div>
         ) : (
           <div />
         )}
@@ -41,6 +53,7 @@ export class GeneralTab extends Component {
       <form
         data-test="component-general-tab"
         onSubmit={handleSubmit(this.onSubmit.bind(this))}
+        className="general-tab-form"
       >
         <Field
           label="Name your game"
@@ -54,22 +67,29 @@ export class GeneralTab extends Component {
           type="text"
           component={this.renderField}
         />
-        <Field
-          label="Number of pairs"
-          name="numOfPairs"
-          type="text"
-          component={this.renderField}
+        <div className="general-tab-form__number-of-pairs">
+          <Field
+            label="Number of pairs"
+            name="numOfPairs"
+            type="number"
+            component={this.renderField}
+          />
+          <Field
+            name="numOfPairs"
+            type="range"
+            min="6"
+            max="20"
+            value="12"
+            hideError="true"
+            component={this.renderField}
+          />
+        </div>
+        <Btn
+          type="submit"
+          text="Continue"
+          color="green"
+          className="general-tab-form__submit-btn"
         />
-        <Field
-          name="numOfPairs"
-          type="range"
-          min="6"
-          max="20"
-          value="12"
-          noError="true"
-          component={this.renderField}
-        />
-        <button type="submit">Continue</button>
       </form>
     );
   }
@@ -82,7 +102,7 @@ const validate = values => {
     errors.gameName = "Your game needs a name";
   }
   if (!values.gameDescription) {
-    errors.gameDescription = "Add a descripton to tell players about your game";
+    errors.gameDescription = "Add a descripton to entice players";
   }
   if (!values.numOfPairs) {
     errors.numOfPairs = "How many pairs in your game?";
@@ -91,8 +111,8 @@ const validate = values => {
   return errors;
 };
 
-const mapStateToProps = ({ buildData }) => {
-  return { buildData };
+const mapStateToProps = ({ builtGames, gameBuilder }) => {
+  return { builtGames, gameBuilder };
 };
 
 export default reduxForm({

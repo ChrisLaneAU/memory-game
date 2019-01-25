@@ -1,14 +1,18 @@
 .build-panel {
   background-color: #e6e6e6;
   height: 80vh;
+  min-height: 40em;
   width: 50vw;
+  max-width: 30em;
 
   &__tab {
     margin: 0 2em;
     height: calc(100% - 4.7em);
   }
-}
 
-h4 {
-  padding-left: 0.4em;
+  h4 {
+    padding-top: 1em;
+    padding-left: 0.4em;
+    color: #333;
+  }
 }
