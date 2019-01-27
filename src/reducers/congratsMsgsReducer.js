@@ -1,8 +1,8 @@
-import { VIEWER_CARDS_TO_FRONT } from "../../actions/types";
+import { SET_CONGRATS_MSGS } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case VIEWER_CARDS_TO_FRONT:
+    case SET_CONGRATS_MSGS:
       return action.payload;
     default:
       return state;

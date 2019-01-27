@@ -1,8 +1,8 @@
-import { VIEWER_CARDS_TO_FRONT } from "../../actions/types";
+import { UPLOADED_IMAGES } from "../../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case VIEWER_CARDS_TO_FRONT:
+    case UPLOADED_IMAGES:
       return action.payload;
     default:
       return state;

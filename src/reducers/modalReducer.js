@@ -1,8 +1,8 @@
-import { VIEWER_CARDS_TO_FRONT } from "../../actions/types";
+import { MODAL } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case VIEWER_CARDS_TO_FRONT:
+    case MODAL:
       return action.payload;
     default:
       return state;

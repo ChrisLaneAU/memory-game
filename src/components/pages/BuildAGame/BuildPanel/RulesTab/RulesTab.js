@@ -4,22 +4,57 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 
 import Btn from "../../../../Btn/Btn";
-import { saveBuild, setActiveBuildTab } from "../../../../../actions";
+import { saveBuildRules, setActiveBuildTab } from "../../../../../actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export class RulesTab extends Component {
   componentDidMount() {
-    const rules = {
-      rule1: "test rule one",
-      rule2: "test rule two",
-      rule3: "test rule three",
-      rule4: "test rule four"
-    };
+    const rules = [
+      "test rule one",
+      "test rule two",
+      "test rule three",
+      "test rule four"
+    ];
 
-    this.props.initialize(rules);
+    const rulesArr = rules.map((rule, index) => {
+      const ruleNum = index + 1;
+      return (
+        <Field
+          label={ruleNum}
+          name={`rule${ruleNum}`}
+          component={this.renderField}
+        />
+      );
+    });
+
+    //this.props.initialize(rules);
   }
 
-  renderField(field, rule) {
+  renderRules() {
+    const rules = [
+      "test rule one",
+      "test rule two",
+      "test rule three",
+      "test rule four",
+      "test rule five"
+    ];
+
+    const rulesArr = rules.map((rule, index) => {
+      const ruleNum = index + 1;
+      return (
+        <Field
+          key={ruleNum}
+          label={ruleNum}
+          name={`rule${ruleNum}`}
+          component={this.renderField}
+        />
+      );
+    });
+
+    return rulesArr;
+  }
+
+  renderField(field) {
     const {
       meta: { touched, error }
     } = field;
@@ -45,7 +80,7 @@ export class RulesTab extends Component {
   }
 
   onSubmit(values) {
-    this.props.saveBuild(values);
+    this.props.saveBuildRules(values);
     this.props.setActiveBuildTab("Content");
   }
 
@@ -60,10 +95,11 @@ export class RulesTab extends Component {
       >
         <h4>Rules (how to play)</h4>
         <div>
-          <Field label="1" name="rule1" component={this.renderField} />
+          {this.renderRules()}
+          {/*<Field label="1" name="rule1" component={this.renderField} />
           <Field label="2" name="rule2" component={this.renderField} />
           <Field label="3" name="rule3" component={this.renderField} />
-          <Field label="4" name="rule4" component={this.renderField} />
+          <Field label="4" name="rule4" component={this.renderField} />*/}
         </div>
         <Btn
           text={
@@ -90,14 +126,8 @@ export class RulesTab extends Component {
 const validate = values => {
   const errors = {};
 
-  if (!values.gameName) {
-    errors.gameName = "Your game needs a name";
-  }
-  if (!values.gameDescription) {
-    errors.gameDescription = "Add a descripton to tell players about your game";
-  }
-  if (!values.numOfPairs) {
-    errors.numOfPairs = "How many pairs in your game?";
+  if (!values.rule1) {
+    errors.gameName = "You need at least one rule";
   }
 
   return errors;
@@ -113,6 +143,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuild, setActiveBuildTab }
+    { saveBuildRules, setActiveBuildTab }
   )(RulesTab)
 );

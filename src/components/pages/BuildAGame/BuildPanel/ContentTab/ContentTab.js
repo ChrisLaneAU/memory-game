@@ -4,7 +4,7 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 
 import Btn from "../../../../Btn/Btn";
-import { saveBuild, setActiveBuildTab } from "../../../../../actions";
+import { saveBuildGeneral, setActiveBuildTab } from "../../../../../actions";
 
 export class ContentTab extends Component {
   renderField(field) {
@@ -22,7 +22,7 @@ export class ContentTab extends Component {
   }
 
   onSubmit(values) {
-    this.props.saveBuild(values);
+    this.props.saveBuildGeneral(values);
     this.props.setActiveBuildTab("Sample");
   }
 
@@ -91,6 +91,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuild, setActiveBuildTab }
+    { saveBuildGeneral, setActiveBuildTab }
   )(ContentTab)
 );

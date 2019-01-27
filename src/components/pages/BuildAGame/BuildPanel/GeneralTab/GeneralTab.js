@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import Btn from "../../../../Btn/Btn";
 import {
-  saveBuild,
+  saveBuildGeneral,
   setCurrentBuild,
   setActiveBuildTab
 } from "../../../../../actions";
@@ -41,7 +41,7 @@ export class GeneralTab extends Component {
   }
 
   onSubmit(values) {
-    this.props.saveBuild(values);
+    this.props.saveBuildGeneral(values);
     this.props.setCurrentBuild(values);
     this.props.setActiveBuildTab("Rules");
   }
@@ -112,6 +112,7 @@ const validate = values => {
 };
 
 const mapStateToProps = ({ builtGames, gameBuilder }) => {
+  console.log("builtGames", builtGames);
   return { builtGames, gameBuilder };
 };
 
@@ -121,6 +122,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuild, setCurrentBuild, setActiveBuildTab }
+    { saveBuildGeneral, setCurrentBuild, setActiveBuildTab }
   )(GeneralTab)
 );

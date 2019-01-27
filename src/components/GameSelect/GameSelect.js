@@ -4,26 +4,32 @@ import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-import { saveBuild, setCurrentBuild } from "../../actions";
+import {
+  saveBuildGeneral,
+  saveBuildRules,
+  setCurrentBuild
+} from "../../actions";
 import Card from "../Card/Card";
 
 export class GameSelect extends Component {
   componentDidMount() {
-    const rules = {
-      rule1: "Tap a card to turn it over",
-      rule2: "Tap a second card",
-      rule3: "If they match you get a point and another turn",
-      rule4:
-        "If they don't match, both cards are turned back over and it's the next player's turn"
-    };
-    const preppo = {
+    const preppoGeneral = {
       gameName: "Preppo",
       gameDescription: "Learn prepositional phrases",
       numOfPairs: 6
     };
+    const preppoRules = [
+      "Tap a card to turn it over",
+      "Tap a second card",
+      "If they match you get a point and another turn",
+      "If they don't match, both cards are turned back over and it's the next player's turn"
+    ];
+    const preppoContent = {};
 
-    this.props.saveBuild(preppo);
-    this.props.setCurrentBuild(preppo);
+    this.props.saveBuildGeneral(preppoGeneral);
+    //this.props.saveBuildRules(preppoRules)
+    //this.props.saveBuildContent(preppoContent)
+    this.props.setCurrentBuild(preppoGeneral);
   }
 
   renderCards() {
@@ -99,5 +105,5 @@ const mapStateToProps = ({ builtGames }) => {
 
 export default connect(
   null,
-  { saveBuild, setCurrentBuild }
+  { saveBuildGeneral, saveBuildRules, setCurrentBuild }
 )(GameSelect);

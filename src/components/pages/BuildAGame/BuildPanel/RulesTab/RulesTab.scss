@@ -1,7 +1,7 @@
 .rules-tab-form {
   height: 100%;
   display: grid;
-  grid-template-rows: min-content repeat(3, 1fr);
+  grid-template-rows: repeat(2, min-content) repeat(2, 1fr);
   grid-template-columns: 1fr;
 
   &__field {
