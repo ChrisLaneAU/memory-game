@@ -1,14 +1,14 @@
-## Memmo - a memory game allowing users to build their own style of memory based card game
+## Memmo
 
-Wireframes can be found [here](https://drive.google.com/open?id=1n51l7oCv1-Q29V6ShmsUn4EHENL8OrUJ)
+### A memory game allowing users to build their own style of memory based card game
+
+Wireframes can be found [here](https://drive.google.com/open?id=1OhzTV_TRz6vOjG0U_WA9cO1WMe2YTLod)
 
 Store structure can be found [here](https://docs.google.com/spreadsheets/d/1bSr2SsoKshevGYCjkckA6cN6K8khVZbexxwsqpuc76Y/edit?usp=sharing).
 
-## ///////////////////////////
+---
 
-## // START CREACT REACT APP README
-
-## ///////////////////////////
+## START CREACT REACT APP README
 
 ## Available Scripts
 
