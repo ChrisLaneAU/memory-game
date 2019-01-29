@@ -1,4 +1,4 @@
-import { SAVE_BUILT_BACK_IMG } from "../../actions/types";
+import { SAVE_BUILT_BACK_IMG } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {

@@ -14,7 +14,7 @@ import {
 
 import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 import Header from "./components/Header/Header";
-import GameSelect from "./components/GameSelect/GameSelect";
+import GameSelect from "./components/pages/MainMenu/MainMenu";
 
 library.add(faBrain, faTools, faTh, faForward, faPlus, faMinus);
 

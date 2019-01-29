@@ -1,14 +1,15 @@
 import { combineReducers } from "redux";
 import activeTab from "./activeTabReducer";
-import currentBuild from "./currentBuildReducer";
+import gameName from "../utilReducers/gameNameReducer";
+import numOfPairs from "../utilReducers/numOfPairsReducer";
 import images from "./imagesReducer";
 import captions from "./captionsReducer";
 import viewerCardsToFront from "./viewerCardsToFrontReducer";
 
 export default combineReducers({
   activeTab,
-  gameName: currentBuild.gameName,
-  numOfPairs: currentBuild.numOfPairs,
+  gameName,
+  numOfPairs,
   images,
   captions,
   viewerCardsToFront

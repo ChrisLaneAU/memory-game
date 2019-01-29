@@ -5,15 +5,19 @@ import { connect } from "react-redux";
 
 import Btn from "../../../../Btn/Btn";
 import {
-  saveBuildGeneral,
-  setCurrentBuild,
-  setActiveBuildTab
+  saveBuiltGame,
+  setActiveBuildTab,
+  setGameName,
+  setNumOfPairs
 } from "../../../../../actions";
 
 export class GeneralTab extends Component {
   componentDidMount() {
-    const gameName = this.props.gameBuilder.currentBuild;
-    this.props.initialize(gameName);
+    const { gameName } = this.props.gameBuilder;
+    this.props.setGameName(gameName);
+    const { games } = this.props;
+    const generalData = games[gameName];
+    this.props.initialize(generalData);
   }
 
   renderField(field) {
@@ -41,8 +45,8 @@ export class GeneralTab extends Component {
   }
 
   onSubmit(values) {
-    this.props.saveBuildGeneral(values);
-    this.props.setCurrentBuild(values);
+    this.props.saveBuiltGame(values);
+    this.props.setNumOfPairs(this.props.gameBuilder.numOfPairs);
     this.props.setActiveBuildTab("Rules");
   }
 
@@ -111,9 +115,8 @@ const validate = values => {
   return errors;
 };
 
-const mapStateToProps = ({ builtGames, gameBuilder }) => {
-  console.log("builtGames", builtGames);
-  return { builtGames, gameBuilder };
+const mapStateToProps = ({ games, gameBuilder, numOfPairs }) => {
+  return { games, gameBuilder, numOfPairs };
 };
 
 export default reduxForm({
@@ -122,6 +125,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuildGeneral, setCurrentBuild, setActiveBuildTab }
+    { saveBuiltGame, setActiveBuildTab, setGameName, setNumOfPairs }
   )(GeneralTab)
 );

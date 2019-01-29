@@ -1,4 +1,4 @@
-import { SAVE_BUILT_GAME } from "../../actions/types";
+import { SAVE_BUILT_GAME } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {

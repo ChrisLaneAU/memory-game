@@ -1,4 +1,4 @@
-import { SAVE_BUILT_PAIRS } from "../../actions/types";
+import { SAVE_BUILT_PAIRS } from "../actions/types";
 
 export default (state = {}, action) => {
   switch (action.type) {

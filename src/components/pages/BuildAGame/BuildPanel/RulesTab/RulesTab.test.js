@@ -13,6 +13,8 @@ describe("render", () => {
   let wrapper;
   beforeEach(() => {
     const initialState = {
+      rules: { Preppo: ["1", "2"] },
+      gameBuilder: { gameName: "Preppo" },
       handleSubmit: function() {
         return true;
       }

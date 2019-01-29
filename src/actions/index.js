@@ -1,6 +1,6 @@
 import * as actionTypes from "./types";
 
-// GENERAL
+// UTILITY
 
 export const loadingVisible = visible => dispatch => {
   dispatch({
@@ -23,6 +23,20 @@ export const setModalData = modalData => dispatch => {
   });
 };
 
+export const setGameName = gameName => dispatch => {
+  dispatch({
+    type: actionTypes.GAME_NAME,
+    payload: gameName
+  });
+};
+
+export const setNumOfPairs = numOfPairs => dispatch => {
+  dispatch({
+    type: actionTypes.NUM_OF_PAIRS,
+    payload: numOfPairs
+  });
+};
+
 // BUILT GAMES
 
 export const saveBuiltGame = games => dispatch => {
@@ -32,7 +46,9 @@ export const saveBuiltGame = games => dispatch => {
   });
 };
 
-export const saveBuiltRules = rules => dispatch => {
+export const saveBuiltRules = (rules, gameName) => dispatch => {
+  rules.gameName = gameName;
+  console.log(rules);
   dispatch({
     type: actionTypes.SAVE_BUILT_RULES,
     payload: rules
@@ -62,13 +78,6 @@ export const setActiveBuildTab = activeBuildTab => dispatch => {
   });
 };
 
-export const setCurrentBuild = currentBuild => dispatch => {
-  dispatch({
-    type: actionTypes.SET_CURRENT_BUILD,
-    payload: currentBuild
-  });
-};
-
 export const setUploadedImages = images => dispatch => {
   dispatch({
     type: actionTypes.UPLOADED_IMAGES,
@@ -92,10 +101,24 @@ export const setCardsToFront = cards => dispatch => {
 
 // GAME PLAY
 
-export const setupGame = setupGameData => dispatch => {
+export const setNumOfPlayers = numOfPlayers => dispatch => {
   dispatch({
-    type: actionTypes.SETUP_GAME,
-    payload: setupGameData
+    type: actionTypes.NUM_OF_PLAYERS,
+    payload: numOfPlayers
+  });
+};
+
+export const setActiveGame = activeGame => dispatch => {
+  dispatch({
+    type: actionTypes.ACTIVE_GAME,
+    payload: activeGame
+  });
+};
+
+export const setPlayerNames = playerNames => dispatch => {
+  dispatch({
+    type: actionTypes.PLAYER_NAMES,
+    payload: playerNames
   });
 };
 

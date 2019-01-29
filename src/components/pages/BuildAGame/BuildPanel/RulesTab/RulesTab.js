@@ -4,42 +4,26 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 
 import Btn from "../../../../Btn/Btn";
-import { saveBuildRules, setActiveBuildTab } from "../../../../../actions";
+import { saveBuiltRules, setActiveBuildTab } from "../../../../../actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export class RulesTab extends Component {
   componentDidMount() {
-    const rules = [
-      "test rule one",
-      "test rule two",
-      "test rule three",
-      "test rule four"
-    ];
-
-    const rulesArr = rules.map((rule, index) => {
-      const ruleNum = index + 1;
-      return (
-        <Field
-          label={ruleNum}
-          name={`rule${ruleNum}`}
-          component={this.renderField}
-        />
-      );
-    });
-
-    //this.props.initialize(rules);
+    const { rules, gameBuilder } = this.props;
+    const rulesData = rules[gameBuilder.gameName];
+    //if (!rulesData) return;
+    this.props.initialize(rulesData);
   }
 
   renderRules() {
-    const rules = [
-      "test rule one",
-      "test rule two",
-      "test rule three",
-      "test rule four",
-      "test rule five"
-    ];
-
-    const rulesArr = rules.map((rule, index) => {
+    const { rules, gameBuilder } = this.props;
+    const rulesData = rules[gameBuilder.gameName];
+    if (!rulesData) return;
+    const rulesArr = [];
+    for (let key in rulesData) {
+      rulesArr.push(rulesData[key]);
+    }
+    const ruleFields = rulesArr.map((rule, index) => {
       const ruleNum = index + 1;
       return (
         <Field
@@ -50,8 +34,7 @@ export class RulesTab extends Component {
         />
       );
     });
-
-    return rulesArr;
+    return ruleFields;
   }
 
   renderField(field) {
@@ -80,7 +63,7 @@ export class RulesTab extends Component {
   }
 
   onSubmit(values) {
-    this.props.saveBuildRules(values);
+    this.props.saveBuiltRules(values);
     this.props.setActiveBuildTab("Content");
   }
 
@@ -94,13 +77,7 @@ export class RulesTab extends Component {
         className="rules-tab-form"
       >
         <h4>Rules (how to play)</h4>
-        <div>
-          {this.renderRules()}
-          {/*<Field label="1" name="rule1" component={this.renderField} />
-          <Field label="2" name="rule2" component={this.renderField} />
-          <Field label="3" name="rule3" component={this.renderField} />
-          <Field label="4" name="rule4" component={this.renderField} />*/}
-        </div>
+        <div>{this.renderRules()}</div>
         <Btn
           text={
             <FontAwesomeIcon icon="plus" className="rules-tab-form__icon" />
@@ -133,8 +110,8 @@ const validate = values => {
   return errors;
 };
 
-const mapStateToProps = ({ builtGames }) => {
-  return { builtGames };
+const mapStateToProps = ({ games, rules, gameBuilder }) => {
+  return { games, rules, gameBuilder };
 };
 
 export default reduxForm({
@@ -143,6 +120,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { saveBuildRules, setActiveBuildTab }
+    { saveBuiltRules, setActiveBuildTab }
   )(RulesTab)
 );
