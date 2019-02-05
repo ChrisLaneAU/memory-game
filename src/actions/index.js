@@ -47,11 +47,9 @@ export const saveBuiltGame = games => dispatch => {
 };
 
 export const saveBuiltRules = (rules, gameName) => dispatch => {
-  rules.gameName = gameName;
-  console.log(rules);
   dispatch({
     type: actionTypes.SAVE_BUILT_RULES,
-    payload: rules
+    payload: { rules, gameName }
   });
 };
 
@@ -62,10 +60,10 @@ export const saveBuiltPairs = pairs => dispatch => {
   });
 };
 
-export const saveBuiltBackCardImg = backOfCardImgs => dispatch => {
+export const saveBuiltBackCardsImg = backOfCardsImg => dispatch => {
   dispatch({
     type: actionTypes.SAVE_BUILT_BACK_IMG,
-    payload: backOfCardImgs
+    payload: backOfCardsImg
   });
 };
 
@@ -82,6 +80,13 @@ export const setUploadedImages = images => dispatch => {
   dispatch({
     type: actionTypes.UPLOADED_IMAGES,
     payload: images
+  });
+};
+
+export const setActiveImage = activeImageIndex => dispatch => {
+  dispatch({
+    type: actionTypes.SET_ACTIVE_IMAGE,
+    payload: activeImageIndex
   });
 };
 

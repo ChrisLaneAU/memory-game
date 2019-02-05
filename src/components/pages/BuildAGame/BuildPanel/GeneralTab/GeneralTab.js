@@ -13,7 +13,7 @@ import {
 
 export class GeneralTab extends Component {
   componentDidMount() {
-    const { gameName } = this.props.gameBuilder;
+    const gameName = this.props.gameBuilder.gameName || "Untitled Game";
     this.props.setGameName(gameName);
     const { games } = this.props;
     const generalData = games[gameName];
@@ -90,8 +90,8 @@ export class GeneralTab extends Component {
         </div>
         <Btn
           type="submit"
-          text="Continue"
-          color="green"
+          text="Next &rarr;"
+          color="blue"
           className="general-tab-form__submit-btn"
         />
       </form>

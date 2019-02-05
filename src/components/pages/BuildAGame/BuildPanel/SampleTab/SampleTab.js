@@ -8,7 +8,7 @@ import Btn from "../../../../Btn/Btn";
 
 export class SampleTab extends Component {
   handleClick(event) {
-    const { gameName, numOfPairs } = this.props.gameBuilder.currentBuild;
+    const { gameName, numOfPairs } = this.props.gameBuilder;
     const numOfCards = numOfPairs * 2;
     let cards = [];
     const { innerHTML } = event.target;
@@ -48,8 +48,8 @@ export class SampleTab extends Component {
   }
 }
 
-const mapStateToProps = ({ builtGames, gameBuilder }) => {
-  return { builtGames, gameBuilder };
+const mapStateToProps = ({ games, gameBuilder }) => {
+  return { games, gameBuilder };
 };
 
 export default connect(

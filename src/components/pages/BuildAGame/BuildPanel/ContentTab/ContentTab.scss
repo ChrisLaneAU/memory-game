@@ -1,0 +1,36 @@
+@import "../../../../../sass/radio.scss";
+
+.content-wrapper {
+  height: 100%;
+}
+
+.content-tab-form {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(4, min-content) 1fr;
+  grid-template-columns: 1fr;
+
+  &__error {
+    height: 2em;
+    color: #ff0000;
+    padding: 0.3em;
+  }
+
+  &__radio-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    max-width: 20em;
+    margin: 0 auto;
+  }
+
+  &__radio-btn {
+  }
+
+  &__submit-btn {
+    grid-row: -1;
+    align-self: end;
+    justify-self: center;
+    margin-bottom: 3em;
+  }
+}

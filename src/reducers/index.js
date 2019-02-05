@@ -5,7 +5,7 @@ import congratsMsgs from "./utilReducers/congratsMsgsReducer";
 import games from "./gamesReducer";
 import rules from "./rulesReducer";
 import pairs from "./pairsReducer";
-import backOfCardImgs from "./backOfCardImgsReducer";
+import backOfCardsImg from "./backOfCardsImgReducer";
 import gameBuilder from "./gameBuilderReducers";
 import gamePlay from "./gamePlayReducers";
 import modal from "./utilReducers/modalReducer";
@@ -18,7 +18,7 @@ export default combineReducers({
   games,
   rules,
   pairs,
-  backOfCardImgs,
+  backOfCardsImg,
   gameBuilder,
   gamePlay,
   modal,

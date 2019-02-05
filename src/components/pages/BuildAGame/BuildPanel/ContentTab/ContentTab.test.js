@@ -15,6 +15,10 @@ describe("render", () => {
     const initialState = {
       handleSubmit: function() {
         return true;
+      },
+      gameBuilder: {
+        gameName: "Untitled Game",
+        images: { img: "", style: "center" }
       }
     };
     wrapper = setup(initialState);

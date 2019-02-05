@@ -1,0 +1,38 @@
+.image-gallery {
+  margin-top: 0.5em;
+  margin-bottom: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+
+  &__img-container {
+    width: 29%;
+    height: min-content;
+    margin: 0.5em;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5em 4em rgba(#000, 0.15);
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.1s;
+
+    &--active {
+      outline: 4px solid #1ba1e2;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    display: flex;
+    pointer-events: none;
+  }
+
+  &__img--center {
+    padding: 8%;
+  }
+
+  &__img--fill {
+    padding: 0;
+  }
+}
