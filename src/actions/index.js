@@ -99,7 +99,7 @@ export const setCardCaptions = captions => dispatch => {
 
 export const setCardsToFront = cards => dispatch => {
   dispatch({
-    type: actionTypes.VIEWER_CARDS_TO_FRONT,
+    type: actionTypes.DISPLAY_CARDS_TO_FRONT,
     payload: cards
   });
 };

@@ -12,7 +12,10 @@ const setup = (initialState = {}) => {
 describe("render", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = setup();
+    const initialState = {
+      gameBuilder: { numOfPairs: 2, displayCardsToFront: [1] }
+    };
+    wrapper = setup(initialState);
   });
   it("renders without error", () => {
     const component = findByTestAttr(wrapper, "component-display-panel");

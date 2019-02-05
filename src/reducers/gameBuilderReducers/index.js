@@ -5,7 +5,7 @@ import numOfPairs from "../utilReducers/numOfPairsReducer";
 import images from "./imagesReducer";
 import activeImage from "./activeImageReducer";
 import captions from "./captionsReducer";
-import viewerCardsToFront from "./viewerCardsToFrontReducer";
+import displayCardsToFront from "./displayCardsToFrontReducer";
 
 export default combineReducers({
   activeTab,
@@ -14,5 +14,5 @@ export default combineReducers({
   images,
   activeImage,
   captions,
-  viewerCardsToFront
+  displayCardsToFront
 });

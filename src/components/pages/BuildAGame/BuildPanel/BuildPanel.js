@@ -11,7 +11,7 @@ import SampleTab from "./SampleTab/SampleTab";
 
 export class BuildPanel extends Component {
   componentDidMount() {
-    this.props.setActiveBuildTab("Content");
+    this.props.setActiveBuildTab("General");
   }
 
   handleButtonTabsClick(event) {

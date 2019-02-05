@@ -1,6 +1,5 @@
 .build-a-game {
-  &__build-panel {
-  }
-  &__display-panel {
-  }
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr;
 }
